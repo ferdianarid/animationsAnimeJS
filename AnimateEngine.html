@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anime JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body {
+            background-color: #000;
+            overflow: hidden;
+        }
+        .action {
+            position: relative;
+            font-family: 'Viga';
+            width: 45%;
+            margin: auto;
+            margin-top: 3%;
+            background-color: #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .play,
+        .pause {
+            width: 45%;
+            margin-left: 2%;
+            margin-right: 2%;
+
+        }
+        h2 {
+            position: relative;
+            margin-top: 2%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #column {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1%;
+        }
+        .box,
+        .square {
+            height: 50px;
+            width: 50px;
+            margin: 2%;
+        }
+        .boxOne { background-color: blue; }
+        .boxTwo { background-color: yellow; }
+        .boxThree { background-color: darkblue; }
+        .boxFour { background-color: red; }
+        .boxFive { background-color: #FFF; }
+        .boxSix { background-color: blue; }
+        .boxSeven { background-color: yellow; }
+        .boxEight { background-color: darkblue; }
+        .boxNine { background-color: red; }
+        .boxTen { background-color: #FFF; }
+        
+        .header {
+            height: 100vh;
+            width: 100%;
+            background-image: url('picture/cat_art_tree_vector_118866_1920x1080.jpg');
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <h2 class="text-center text-light">Animation</h2>
+    <div class="action">
+        <div class="btn btn-success play play2"><i class="fa fa-play"></i> &nbsp;&nbsp; Play </div>
+        <div class="btn btn-danger pause"><i class="fa fa-pause"></i> &nbsp;&nbsp; Pause </div>
+    </div>
+
+    <div id="column">
+        <div class="box boxOne"></div>
+        <div class="box boxTwo"></div>
+        <div class="box boxThree"></div>
+        <div class="box boxFour"></div>
+        <div class="box boxFive"></div>
+        <div class="square boxSix"></div>
+        <div class="square boxSeven"></div>
+        <div class="square boxEight"></div>
+        <div class="square boxNine"></div>
+        <div class="square boxTen"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <script src="anime.min.js"></script>
+    <script type="text/javascript">
+
+    let movePath = anime({
+        targets: '.box',
+        keyframes: [
+            { translateY: 100, duration: 500 },
+            { translateX: 550, duration: 500 },
+            { translateY: 200, duration: 500 },
+            { translateX: 0, duration: 500 },
+            { translateY: 0, duration: 500 }
+        ],
+        rotate: [
+            { value: '2turn', duration: 1000 },
+            { value: '180deg', duration: 500 },
+            { value: '160deg', duration: 500 },
+            { value: '270deg', duration: 500 },
+            { value: '90deg', duration: 1000 },
+        ],
+        easing: 'easeInOutSine',
+        delay: (el, index ,l) => { return index * 1000 },
+        loop: true,
+        autoplay: false
+    });
+
+    let moveSquare = anime({
+            targets: '.square',
+            keyframes: [
+                { translateY: 200, duration: 1000 },
+                { translateX: -600, duration: 1000 },
+                { translateY: 100, duration: 1000 },
+                { translateX: 0, duration: 1000 },
+                { translateY: 0, duration: 1000 }
+            ],
+            easing: 'easeInOutExpo',
+            scale: [
+                { value: 0, duration: 200 },
+                { value: 1, duration: 200 },
+                { value: 2, duration: 1500 },
+                { value: 1, duration: 200 }
+            ],
+            delay: (el, index, l ) => { return index * 1000 },
+            loop: true
+        });
+
+        document.querySelector('.play').onclick = movePath.play;
+        document.querySelector('.pause').onclick = movePath.pause;
+
+    </script>
+</body>
+</html>

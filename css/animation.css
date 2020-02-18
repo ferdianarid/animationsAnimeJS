@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[10];
+      grid-template-columns: repeat(10, auto);
+}
+
+section div {
+  height: 100vh;
+  background-color: white;
+  transition: background-color 1s;
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  -ms-transition: background-color 1s;
+  -o-transition: background-color 1s;
+}
+
+h2 {
+  font-size: 5em;
+  position: absolute;
+  top: 40%;
+  left: 12%;
+  opacity: 0;
+  z-index: 2;
+}
+/*# sourceMappingURL=animation.css.map */
